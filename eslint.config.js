@@ -31,6 +31,7 @@ export default [
       'security/detect-non-literal-fs-filename': 'warn',
       // Best Practices
       'no-console': 'warn',
+      'no-var': 'error',
       // Code Quality
       'no-unused-vars': ['warn', { argsIgnorePattern: '^__' }],
       'no-empty-function': ['error', { allow: ['arrowFunctions'] }], // Allow empty arrow functions, but not others
