@@ -97,7 +97,17 @@ async function setupProject() {
       }
     }
 
-    console.log('Project setup complete!')
+    // Copy .env.example to .env if it exists.
+    const envExamplePath = path.join(projectPath, '.env.example')
+    const envPath = path.join(projectPath, '.env')
+    if (fs.existsSync(envExamplePath)) {
+      fs.copyFileSync(envExamplePath, envPath)
+    }
+
+    console.log('\n✅ Project setup complete!')
+    console.log('\n👉 Next steps:')
+    console.log(`\n📂 cd ${projectName || DEFAULT_PROJECT}`)
+    console.log(`\n🚀 ${isYarnAvailable() ? 'yarn server' : 'npm run server'}\n`)
   } catch (err) {
     console.error('Error:', err.message)
     process.exit(1)
