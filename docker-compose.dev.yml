@@ -1,0 +1,8 @@
+version: '3.0'
+
+services:
+  node-app:
+    container_name: node-app-dev
+    command: yarn server -L
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}

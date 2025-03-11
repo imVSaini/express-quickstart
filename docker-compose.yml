@@ -1,0 +1,56 @@
+version: '3.0'
+
+services:
+  node-app:
+    build: .
+    image: node-app
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=testdb
+    ports:
+      - '4000:4000'
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - .:/usr/src/node-app
+    networks:
+      - node-network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      # MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: testdb
+    ports:
+      - '3306:3306'
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - node-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: mysql
+    networks:
+      - node-network
+
+volumes:
+  dbdata:
+
+networks:
+  node-network:
+    driver: bridge
