@@ -54,15 +54,15 @@ function isYarnAvailable() {
 
 async function setupProject() {
   try {
-    const projectName = await prompt('Enter project name', DEFAULT_PROJECT)
+    const projectName = await prompt('\nEnter project name', DEFAULT_PROJECT)
     const projectPath = path.resolve(process.cwd(), projectName)
 
     // Create project directory if it doesn't exist.
     if (!fs.existsSync(projectPath)) {
       fs.mkdirSync(projectPath, { recursive: true })
-      console.log(`Created directory: ${projectPath}`)
+      console.log(`\nCreated directory: ${projectPath}`)
     } else {
-      console.log(`Directory already exists: ${projectPath}`)
+      console.log(`\nDirectory already exists: ${projectPath}`)
     }
 
     // Clone the repository into the project directory.
