@@ -19,7 +19,7 @@ Express Quickstart is a boilerplate to quickly set up a production-ready RESTful
 
 ### Using npx
 ```sh
-npx @vaibhavsaini/create-express-quickstart my-app
+npx @vaibhavsaini/create-express-quickstart
 cd my-app
 npm install
 ```
