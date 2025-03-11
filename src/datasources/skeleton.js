@@ -76,7 +76,7 @@ class SkeletonAPI {
       ...(data.signature && { signature: data.signature }),
     }
 
-    const [record] = await this.client(this.collection)
+    const record = await this.client(this.collection)
       .update(query, { updated_at: this.client.fn.now() })
       .where({ id })
       .returning(['id', 'name', 'email', 'signature'])

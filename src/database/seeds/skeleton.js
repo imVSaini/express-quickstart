@@ -19,6 +19,11 @@ export const seed = async function (knex) {
     readFileSync(AppRoot.pathway('src/database/data/skeleton.json'), 'utf-8') // eslint-disable-line security/detect-non-literal-fs-filename
   )
 
+  const data = rawData.map((item) => ({
+    ...item,
+    signature: knex.fn.uuid(),
+  }))
+
   await knex('skeleton').del()
-  await knex('skeleton').insert(rawData)
+  await knex('skeleton').insert(data)
 }

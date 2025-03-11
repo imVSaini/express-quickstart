@@ -6,13 +6,17 @@ import {
   getSkeleton,
   updateSkeleton,
 } from '../controllers/skeleton.controller.js'
-import { skeletonSchema } from '../schemas/skeleton.schema.js'
+import {
+  createSkeletonSchema,
+  getSkeletonSchema,
+  modifySkeletonSchema,
+} from '../schemas/skeleton.schema.js'
 
 const skeletonRoutes = express.Router()
 
-skeletonRoutes.get('/', validate(skeletonSchema), getSkeleton)
-skeletonRoutes.post('/', validate(skeletonSchema), createSkeleton)
-skeletonRoutes.put('/:id', validate(skeletonSchema), updateSkeleton)
+skeletonRoutes.get('/', validate(getSkeletonSchema), getSkeleton)
+skeletonRoutes.post('/', validate(createSkeletonSchema), createSkeleton)
+skeletonRoutes.put('/:id', validate(modifySkeletonSchema), updateSkeleton)
 // skeletonRoutes.delete('/:id', skeleton)
 
 export default skeletonRoutes
