@@ -104,10 +104,11 @@ async function setupProject() {
       fs.copyFileSync(envExamplePath, envPath)
     }
 
-    console.log('\n✅ Project setup complete!')
-    console.log('\n👉 Next steps:')
-    console.log(`\n📂 cd ${projectName || DEFAULT_PROJECT}`)
-    console.log(`\n🚀 ${isYarnAvailable() ? 'yarn server' : 'npm run server'}\n`)
+    console.log('\n')
+    console.log('\x1b[32m%s\x1b[0m%s', 'success', ' Project setup complete!')
+    console.log('      - Next steps:')
+    console.log(`      - cd ${projectName || DEFAULT_PROJECT}`)
+    console.log(`      - ${isYarnAvailable() ? 'yarn server' : 'npm run server'}`)
   } catch (err) {
     console.error('Error:', err.message)
     process.exit(1)
