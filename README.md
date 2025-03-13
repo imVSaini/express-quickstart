@@ -96,15 +96,15 @@ npm run seed
 npm run seed:run
 ```
 
+### SQLite Note
+If you want to use SQLite, make sure to create a `.tmp` directory in the root of your project.
+
 ## Linting & Formatting
 
 ### Linting
 ```sh
 npm run lint
 ```
-
-### SQLite Note
-If you want to use SQLite, make sure to create a `.tmp` directory in the root of your project.
 
 ### Fix Linting Issues
 ```sh
