@@ -34,10 +34,11 @@
   "license": "MIT",
   "keywords": [
     "express",
-    "express-boilerplate",
     "nodejs",
     "rest-api",
     "api-server",
+    "express-app",
+    "express-boilerplate",
     "express-quickstart",
     "backend",
     "knex",
