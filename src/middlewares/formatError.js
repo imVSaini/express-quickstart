@@ -1,5 +1,5 @@
 import appenv from '../config/index.js'
-import { ApiResponseCodes } from '../utils/ApiResponseCodes.js'
+import { AppResponseStatusCodes } from '../utils/AppResponseStatusCodes.js'
 import logger from '../lib/logger/log.js'
 
 /**
@@ -30,7 +30,7 @@ export default function formatError(err, req, res, __) {
 
   // Set default error code based on status code
   if (!errorCode) {
-    errorCode = ApiResponseCodes.getCode(statusCode)
+    errorCode = AppResponseStatusCodes.get(statusCode)
   }
 
   // For production environment, hide detailed error stack traces
