@@ -6,7 +6,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 // Repository URL for the boilerplate project
-const REPO_URL = 'git@github.com:imVSaini/express-quickstart.git'
+const REPO_URL = isGithubSSHAvailable()
+  ? 'git@github.com:imVSaini/express-quickstart.git'
+  : 'https://github.com/imVSaini/express-quickstart.git'
 
 // Default project name
 const DEFAULT_PROJECT = 'express-quickstart'
@@ -40,6 +42,16 @@ function prompt(query, defaultValue) {
       resolve(answer.trim() || defaultValue)
     })
   })
+}
+
+// Check if GitHub SSH is available; fall back to HTTPS if not.
+function isGithubSSHAvailable() {
+  try {
+    execSync('ssh -T git@github.com', { stdio: 'pipe', encoding: 'utf-8' })
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Check if Yarn is available; fall back to npm if not.
