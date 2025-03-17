@@ -1,6 +1,6 @@
 # Express Quickstart
 
-[![npm version](https://badge.fury.io/js/%40vaibhavsaini%2Fcreate-express-quickstart.svg)](https://badge.fury.io/js/%40vaibhavsaini%2Fcreate-express-quickstart)
+[![npm version](https://badge.fury.io/js/create-express-quickstart.svg)](https://badge.fury.io/js/create-express-quickstart)
 
 Express Quickstart is a boilerplate to quickly set up a production-ready RESTful API using Express.js. This package helps developers bootstrap their Node.js API projects with best practices, database support, linting, testing, and Docker integration.
 
@@ -19,7 +19,7 @@ Express Quickstart is a boilerplate to quickly set up a production-ready RESTful
 
 ### Using npx
 ```sh
-npx @vaibhavsaini/create-express-quickstart
+npx create-express-quickstart
 cd my-app
 npm install
 ```
