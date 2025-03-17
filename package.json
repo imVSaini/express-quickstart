@@ -27,6 +27,7 @@
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
     "docker:prod": "cross-env NODE_ENV=production docker-compose -f docker-compose.yml -f docker-compose.prod.yml up",
     "docker:dev": "cross-env NODE_ENV=development docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "docker:test": "cross-env NODE_ENV=development docker-compose -f docker-compose.yml -f docker-compose.test.yml up",
     "prepare": "husky"
   },
   "repository": "git@github.com:imVSaini/express-quickstart.git",
@@ -69,6 +70,7 @@
     "@commitlint/config-conventional": "^19.8.0",
     "@eslint/js": "^9.21.0",
     "better-sqlite3": "^11.8.1",
+    "coveralls": "^3.1.1",
     "eslint": "^9.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^10.1.1",
